@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:cicsApp"
+             x:Class="cicsApp.MainPage">
+
+    <StackLayout Margin="20,35,20,20">
+        <Button Text="Get Repository Data"
+                Clicked="OnButtonClicked" />
+        <Entry x:Name="txtTo" Placeholder="someone@example.com"></Entry>
+        <!--<Entry x:Name="txtSubject" Placeholder="Subject"></Entry>
+        <Editor x:Name="txtBody" HeightRequest="50" ></Editor>-->
+        <Button x:Name="btnSend" Text="Send Mail" Clicked="btnSend_Clicked" />
+        <ListView x:Name="collectionView"  ItemsSource="{Binding repositories}" SelectedItem="{Binding selectedname}">
+            <!--<ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Label Text="{Binding Name}"
+                               FontSize="Medium" />
+                        <Label Text="{Binding Description}"
+                               TextColor="Silver"
+                               FontSize="Small" />
+                        -->
+            <!--<Label Text="{Binding GitHubHomeUrl}"
+                               TextColor="Gray"
+                               FontSize="Medium" />-->
+            <!--<Label Text="aa"
+                               FontSize="Medium" />
+                        <Label Text="bb"
+                               FontSize="Medium" />
+                        <Label Text="cc"
+                               FontSize="Medium" />-->
+            <!--
+                    </StackLayout>
+                </DataTemplate>
+            </ListView.ItemTemplate>-->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Label Text="{Binding Name}" />
+                            <Label Grid.Column="1" Text="{Binding Description}" />
+
+                        </Grid>
+
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
